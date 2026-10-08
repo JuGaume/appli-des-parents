@@ -24,20 +24,21 @@ export default function Connexion() {
   }
 
   return (
-    <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-4 p-6">
-      <h1 className="text-2xl font-semibold">Connexion</h1>
+    <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-5 p-6">
+      <span className="text-lg font-semibold text-primary">L&apos;appli des parents</span>
+      <h1 className="text-3xl font-semibold">Connexion</h1>
       {etat === "envoye" ? (
-        <p>Un lien de connexion vient d&apos;être envoyé à <strong>{email}</strong>. Ouvre-le sur cet appareil.</p>
+        <p className="carte">Un lien de connexion vient d&apos;être envoyé à <strong>{email}</strong>. Ouvre-le sur cet appareil.</p>
       ) : (
         <form onSubmit={envoyer} className="flex flex-col gap-3">
-          <label htmlFor="email">Ton adresse e-mail</label>
+          <label htmlFor="email" className="text-sm font-medium">Ton adresse e-mail</label>
           <input
             id="email" type="email" autoComplete="email" required value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="rounded-lg border px-3 py-2"
+            className="champ"
           />
-          {erreur && <p role="alert" className="text-red-600">{erreur}</p>}
-          <button className="rounded-lg bg-black px-4 py-2 text-white">Recevoir mon lien</button>
+          {erreur && <p role="alert" className="text-danger">{erreur}</p>}
+          <button className="btn-primary">Recevoir mon lien</button>
         </form>
       )}
     </main>
