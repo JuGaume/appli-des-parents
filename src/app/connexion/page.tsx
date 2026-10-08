@@ -27,7 +27,7 @@ export default function Connexion() {
     <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-4 p-6">
       <h1 className="text-2xl font-semibold">Connexion</h1>
       {etat === "envoye" ? (
-        <p>Un lien de connexion vient d&apos;être envoyé à <strong>{email}</strong>. Ouvre-le sur ce téléphone.</p>
+        <p>Un lien de connexion vient d&apos;être envoyé à <strong>{email}</strong>. Ouvre-le sur cet appareil.</p>
       ) : (
         <form onSubmit={envoyer} className="flex flex-col gap-3">
           <label htmlFor="email">Ton adresse e-mail</label>
