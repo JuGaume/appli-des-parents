@@ -21,8 +21,11 @@ Next.js (App Router, TypeScript) · Tailwind · Supabase (Postgres + connexion p
 - `npx supabase start` / `npx supabase stop` : base locale (Docker requis)
 - `npx supabase test db` : tests de sécurité de la base (RLS)
 - `npx supabase db reset` : rejouer toutes les migrations
+- `npm run e2e` : parcours complet dans un navigateur, avec une fausse IA (base locale lancée ; `npx playwright install chromium` la première fois)
+- `npm run eval` : mesure la lecture des documents par la vraie IA sur `evals/cas/` (clé dans `.env.local`, coûte quelques centimes). Objectif : 90 % de dates justes. À lancer avant de modifier un prompt ou un modèle.
 - `npm run lint` et `npm run build` avant chaque fusion
 
 ## Organisation
 - `src/app/` pages · `src/lib/supabase/` clients Supabase · `src/lib/validation.ts` schémas Zod
-- `supabase/migrations/` schéma · `supabase/tests/` tests SQL
+- `src/lib/ia/` appels à l'IA (client, prompts versionnés, extraction, évaluation)
+- `supabase/migrations/` schéma · `supabase/tests/` tests SQL · `evals/` jeu d'évaluation · `e2e/` tests navigateur

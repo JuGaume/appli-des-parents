@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    // Photos et PDF envoyés depuis le téléphone (10 Mo maximum, vérifié aussi côté serveur).
+    serverActions: { bodySizeLimit: "11mb" },
+  },
 };
 
 export default nextConfig;

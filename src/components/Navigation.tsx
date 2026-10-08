@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpen, CalendarDays, Home, UtensilsCrossed, type LucideIcon } from "lucide-react";
+import { BookOpen, CalendarDays, Camera, Home, UtensilsCrossed, type LucideIcon } from "lucide-react";
 
 const LIENS: { href: string; libelle: string; icone: LucideIcon }[] = [
   { href: "/famille", libelle: "Famille", icone: Home },
+  { href: "/envoyer", libelle: "Envoyer", icone: Camera },
   { href: "/agenda", libelle: "Agenda", icone: CalendarDays },
   { href: "/devoirs", libelle: "Devoirs", icone: BookOpen },
   { href: "/repas", libelle: "Repas", icone: UtensilsCrossed },
@@ -21,7 +22,10 @@ export function Navigation() {
     >
       <ul className="mx-auto flex max-w-md justify-around md:max-w-none md:flex-col md:gap-1 md:p-3">
         {LIENS.map(({ href, libelle, icone: Icone }) => {
-          const actif = chemin === href || (href === "/famille" && chemin.startsWith("/enfants"));
+          const actif =
+            chemin === href ||
+            (href === "/famille" && chemin.startsWith("/enfants")) ||
+            (href === "/envoyer" && chemin.startsWith("/documents"));
           return (
             <li key={href} className="flex-1 md:flex-none">
               <Link
